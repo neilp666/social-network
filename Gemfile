@@ -28,3 +28,4 @@ gem 'spring',        group: :development
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'simple_form'
 gem 'devise'
+gem 'gravatarify', '~> 3.1.1'
