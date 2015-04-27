@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   end
 
   def friendship_status(user_2)  #no friends
-    friendship = Friendship.where(user_id: [self.id.user_2.id], friend_id: [self.id,user_2.id])
+    friendship = Friendship.where(user_id: [self.id,user_2.id], friend_id: [self.id,user_2.id])
     unless friendship.any?
       return "not_friends"
     else
@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
 end
 
 def friendship_relation(user_2)
-  Friendship.where(user_id: [self.id.user_2.id], friend_id: [self.id.user_2.id])
+  Friendship.where(user_id: [self.id,user_2.id], friend_id: [self.id,user_2.id]).first
 end
 
 
