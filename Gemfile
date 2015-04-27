@@ -29,3 +29,4 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'simple_form'
 gem 'devise'
 gem 'gravatarify', '~> 3.1.1'
+gem 'public_activity'
