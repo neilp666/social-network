@@ -8,3 +8,4 @@ Bootstrap 3
 Gravatar 
 Seeds
 public activity
+auto html
