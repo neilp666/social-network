@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
     validates_presence_of :content
 
     auto_html_for :content do
-      html_eascape
+      html_escape
       image
       youtube(width: "100%", height: 250, autoplay: false)
       link target: "_blank", rel: "nofollow"
