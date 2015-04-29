@@ -1,8 +1,14 @@
 <div class="jumbotron text-center">
-<h1>Timeline</h1>
-<div class="btn-group" role="group" aria-label="Default">
-  <%= link_to "Everything", activities_path, class: "btn btn-default #{'active' unless params[:content]}" %>
-  <%= link_to "Just Posts", activities_path(content: "posts"), class: "btn btn-default #{'active' if params[:content] == 'posts'}" %>
+<h1>People</h1>
+<div class="btn-group" role="group" aria-label="Default Button Groups">
+
+<%= link_to "Everyone", users_path, class: "btn btn-default #{'active' unless params[:people]}"%>
+
+<%= link_to "Friends (#{@friend_count})", users_path(people: "friends"), class: "btn btn-default #{'active' if params[:people] == 'friends'}" %>
+
+<%= link_to "Requests (#{request_count})", users_path(people: "requests"), class: "btn btn-default #{'active' if params[:people] == 'requests'}" %>
+
+<%= link_to "Pending (#{@pending_count})", users_path(people: "pending"), class: "btn btn-default #{'active' if params[:people] == 'pending'}" %>
 </div>
 </div>
 
@@ -11,6 +17,7 @@
 
   <% @activities.each_with_index do |activity| %>
 
+  <% unless activity.trackable_type == "Friendship" && activity.owner == current_user %>
   <% if activity.trackable %>
 
   <% if cycle('odd', 'even') == 'odd' %>
@@ -41,7 +48,7 @@
 
 
   <% end %>
-
+  <% end %>
   <% end %>
 
 
